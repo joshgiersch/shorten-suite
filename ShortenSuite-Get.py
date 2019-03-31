@@ -19,5 +19,3 @@ def lambda_handler(event={}, context={}):
         "statusCode": 301,
         "location": long_url
     }
-
-print(lambda_handler(event = {"short_id":"ab1"}))

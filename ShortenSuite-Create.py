@@ -17,10 +17,7 @@ def get_next_id():
 
 def lambda_handler(event={}, context={}):
     try:
-        print(event)
-        event_body = json.loads(event)
-        long_url = event_body['body']['long_url']
-        
+        long_url = event['body']
         short_id = get_next_id()
         short_url = APP_URL + short_id
         response = ddb.put_item(Item={'short_id': short_id, 'long_url': long_url})
@@ -35,15 +32,3 @@ def lambda_handler(event={}, context={}):
         "statusCode": 200,
         "body": short_url
     }
-
-event = """
-{
-	"body": {
-		"long_url": "https://crosscoin.co"
-	}
-}
-"""
-
-
-print(lambda_handler(event=event))
-
