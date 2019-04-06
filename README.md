@@ -50,5 +50,6 @@ What this does: When the Lambda function returns a 301, it grabs the `location` 
 * You might also want to set `API Key required` to True on the Method Request, and create an API key to drive it, just so that randos can't create new URLs at your endpoint.
   * If you do this, you'll also need to set up a Usage Plan to enable the API key controls. You don't need to impose throttling or quotas; just attach it to the deployed API stage.
 
+## TODO
 * Add a check for the URL already existing
 * Add the max_index json blob format
